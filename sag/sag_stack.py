@@ -30,5 +30,4 @@ class SagStack(Stack):
                            versioned=True,
                            auto_delete_objects=True,
                            bucket_name=f"{user}-{org}-bucket",
-                           public_read_access=True,
                            website_index_document="index.html")
