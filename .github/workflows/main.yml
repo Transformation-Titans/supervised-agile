@@ -23,6 +23,9 @@ jobs:
         run: 'sudo npm install -g aws-cdk @angular/cli'
       - name: Install Requirements
         run: 'pip3 install -r requirements.txt'
+      - name: App Dependencies
+        run: npm install
+        working-directory: ./jabrealjohnson.com/
       - name: Build Webapp
         run: npm run build
         working-directory: ./jabrealjohnson.com/
