@@ -23,15 +23,15 @@ jobs:
         run: 'sudo npm install -g aws-cdk'
       - name: Install Requirements
         run: 'pip3 install -r requirements.txt'
+      - name: Build Webapp
+        run: npm run build
+        working-directory: ./jabrealjohnson.com/
       - name: CDK Synth
         run:  cdk synth
         working-directory: .
       - name: CDK Bootstrap
         run:  cdk bootstrap
         working-directory: .
-      - name: Build Webapp
-        run: npm run build
-        working-directory: ./jabrealjohnson.com/
       - name: CDK Deploy
         run:  cdk deploy --require-approval never
         working-directory: .
