@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 import os
-
 import aws_cdk as cdk
-import os
+
 from sag.sag_stack import SagStack
 
 app = cdk.App()
