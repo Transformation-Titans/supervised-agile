@@ -29,6 +29,9 @@ jobs:
       - name: CDK Bootstrap
         run:  cdk bootstrap
         working-directory: .
+      - name: Build Webapp
+        run: npm run build
+        working-directory: ./jabrealjohnson.com/
       - name: CDK Deploy
         run:  cdk deploy --require-approval never
         working-directory: .
