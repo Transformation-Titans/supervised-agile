@@ -1,0 +1,47 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+body {
+  padding-top: 160px;
+}
+.links {
+  list-style: none;
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.links a {
+  font-size: 30px;
+  color: #3d535f;
+  margin: 25px 10px;
+  text-align: center;
+}
+
+.links ul li {
+  display: inline-block;
+}
+
+.links ul img {
+ padding: 2.5% 4%;
+ height: 40px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-item:first-child {
+  margin-right: auto;
+  margin-left: 4rem;
+}
+
+
+#jjfooter {
+  background: rgb(49, 49, 49)
+}
+
+footer {text-align: center;}
+#copyright, ul {display: inline-block;}
+ul {list-style: none; margin: 0; padding: 0;}

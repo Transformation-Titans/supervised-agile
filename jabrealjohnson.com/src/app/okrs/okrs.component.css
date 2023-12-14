@@ -1,0 +1,24 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.btns{
+  width: 50%;
+  position: relative;
+}
+
+#social{
+  padding-top: 60px;
+}
+
+img {
+  width: 100%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 500px) {
+  .responsive{
+    padding: 0px 20px;
+    width: 100%;
+  }
+
+}
+

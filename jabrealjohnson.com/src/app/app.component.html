@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg fixed-top" style="background: white;box-shadow: 1px 2px;">
+  <div class="container">
+    <a class="navbar-brand" href="https://jabrealjohnson.com/">
+      <img src="assets/jj-sitting.png" style="border-radius: 50%;" height="70" alt="">
+    </a>
+    <h3>Jabreal Johnson</h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" style="margin-right: 1em;" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-primary">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Workshops & Course List
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#" routerLink="/pschsafety">Psychological Safety</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/impact">Measuring Impact</a></li>
+            <li><a class="dropdown-item" href="#">DevOps to Transformation</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/servicenow">ServiceNow Modules</a></li>
+            <li><a class="dropdown-item" href="#">Specifications, Scenarios & ATDD</a></li>
+            <li><a class="dropdown-item" href="#">Agile Model & Design</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/kotter">Kotter & Prosci's Baby</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/atlas">Atlassian Tools</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Speaking Engagements
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+            <li><a class="dropdown-item" href="#" routerLink="/okrs">Objectives and Key Results</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/impactstory">Impact and Story Mapping</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/engineering">Modern Software Engineering</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            About Me
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+            <li><a class="dropdown-item" href="#" routerLink="/resume">Consulting</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/socialactivism">Social Activism</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/coaching">Coaching</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- footer -->
+<footer class="fixed-bottom" id="jjfooter">
+  <ul class="horizontal-list">
+    <li class="nav-item" style="padding: 5px; margin: 0px">
+      <div class="links">
+        <a href="https://www.youtube.com/channel/UCiY5OE409kza3seZoF_TKlQ"><i>
+            <fa-icon [icon]="faYoutube" style="color: rgb(215, 45, 45)"></fa-icon>
+          </i></a>
+        <a href="https://twitter.com/jabrealj"><i>
+            <fa-icon [icon]="faTwitter" style="color: cornflowerblue"></fa-icon>
+          </i></a>
+        <a href="https://github.com/jabrealmoe"><i>
+            <fa-icon [icon]="faGithub" style="color: pink"></fa-icon>
+          </i></a>
+        <a href="https://aws.amazon.com"><i>
+            <fa-icon [icon]="faAws" style="color: orange; "></fa-icon>
+          </i></a>
+      </div>
+    </li>
+  </ul>
+</footer>
