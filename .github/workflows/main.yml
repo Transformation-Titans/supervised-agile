@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -17,24 +18,34 @@ jobs:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::460023120802:role/gitHubRole
           role-session-name: samplerolesession
-      - name: install npm
-        run: 'sudo apt update -y && sudo apt install nodejs npm -y'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
       - name: Install AWS CDK and Angular
-        run: 'sudo npm install -g aws-cdk @angular/cli'
+        run: 'npm install -g aws-cdk @angular/cli'
+
       - name: Install Requirements
         run: 'pip3 install -r requirements.txt'
+
       - name: App Dependencies
         run: npm install
         working-directory: ./jabrealjohnson.com/
+
       - name: Build Webapp
         run: npm run build
         working-directory: ./jabrealjohnson.com/
+
       - name: CDK Synth
         run:  cdk synth
         working-directory: .
+
       - name: CDK Bootstrap
         run:  cdk bootstrap
         working-directory: .
+
       - name: CDK Deploy
         run:  cdk deploy --require-approval never
         working-directory: .
