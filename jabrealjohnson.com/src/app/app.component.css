@@ -45,3 +45,11 @@ body {
 footer {text-align: center;}
 #copyright, ul {display: inline-block;}
 ul {list-style: none; margin: 0; padding: 0;}
+
+.page-section {
+  /* Example styling; adjust as needed for your design */
+  min-height: 100vh;  /* Ensure each section is at least as tall as the viewport */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc; /* Just for visual separation of sections */
+}

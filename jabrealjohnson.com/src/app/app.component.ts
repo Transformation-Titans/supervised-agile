@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import {faYoutube, faAws, faAtlassian, faGoogle, faInstagram, faLinkedin, faTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
 
 
@@ -7,43 +9,49 @@ import {faYoutube, faAws, faAtlassian, faGoogle, faInstagram, faLinkedin, faTwit
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnDestroy {
   title = 'jabrealjohnson.com';
+  private observer!: IntersectionObserver;
 
-  faYoutube = faYoutube;
-  faAws = faAws;
-  faAtlassian = faAtlassian;
-  faGoogle = faGoogle;
-  faInstagram = faInstagram;
-  faLinkedin = faLinkedin;
-  faTwitter = faTwitter;
-  faGithub = faGithub;
+  constructor(private router: Router) {}
 
-  images = [
-    {
+  ngAfterViewInit() {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.setUpIntersectionObserver();
+    });
+  }
 
-      imageSrc: 'https://burst.shopifycdn.com/photos/laptop-from-above.jpg',
-      imageAlt: 'nature1'
-    },
-    {
-      imageSrc: 'https://media.istockphoto.com/photos/coach-drawing-american-football-game-playbook-picture-id1366672302?b=1&k=20&m=1366672302&s=170667a&w=0&h=icvKGPFCVclcwsj0l3D91o2MStAYTEGRLijEs2JiCwk=',
-      imageAlt: 'nature2'
-    },
-    {
-      imageSrc: 'https://traveloregon.com/wp-content/uploads/2016/10/MtHoodVillages-07-2000.jpg',
-      imageAlt: 'nature3'
-    },
-    {
-      imageSrc: 'https://miro.medium.com/max/1400/1*3Fxk3b8h1kvKJFe5gVf98A.png',
-      imageAlt: 'nature4'
-    },
-    {
-      imageSrc: 'https://wac-cdn-2.atlassian.com/image/upload/f_auto,q_auto/dam/jcr:786fd7a8-9b53-4b73-af03-fb1b76992638/SMT-2480_JiraAlign_Screenshots-01-ProgramManagement.png',
-      imageAlt: 'Jira Strategy'
-    },
-    {
-      imageSrc: 'https://www.worldofagile.com/wp-content/uploads/2018/03/DevOpsToolchain.png',
-      imageAlt: 'nature5'
-    },
-  ]
+  setUpIntersectionObserver() {
+    // Assuming each routed component has a main container with a class 'page-section'
+    const sections = document.querySelectorAll('.page-section');
+
+    if (this.observer) {
+      this.observer.disconnect(); // Disconnect previous observer
+    }
+
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('Visible section:', entry.target.id);
+          // Add your logic here, e.g., update navbar based on visible section
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    });
+
+    sections.forEach(section => {
+      this.observer.observe(section);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
 }
