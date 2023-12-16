@@ -50,6 +50,6 @@ jobs:
         run:  cdk deploy --require-approval never
         working-directory: .
 
-      - name: CDK Destroy
-        run:  cdk destroy --force
-        working-directory: .
+#      - name: CDK Destroy
+#        run:  cdk destroy --force
+#        working-directory: .
