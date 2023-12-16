@@ -19,6 +19,7 @@ import { MeasuringimpactComponent } from './measuringimpact/measuringimpact.comp
 import { KotterComponent } from './kotter/kotter.component';
 import { ServicenowComponent } from './servicenow/servicenow.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { DatascienceComponent } from './datascience/datascience.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     MeasuringimpactComponent,
     KotterComponent,
     ServicenowComponent,
-    NavigationComponent
+    NavigationComponent,
+    DatascienceComponent
   ],
   imports: [
     HttpClientModule,
