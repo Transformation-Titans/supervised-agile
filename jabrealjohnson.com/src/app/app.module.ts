@@ -18,6 +18,7 @@ import { TribeComponent } from './tribe/tribe.component';
 import { MeasuringimpactComponent } from './measuringimpact/measuringimpact.component';
 import { KotterComponent } from './kotter/kotter.component';
 import { ServicenowComponent } from './servicenow/servicenow.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ServicenowComponent } from './servicenow/servicenow.component';
     TribeComponent,
     MeasuringimpactComponent,
     KotterComponent,
-    ServicenowComponent
+    ServicenowComponent,
+    NavigationComponent
   ],
   imports: [
     HttpClientModule,

@@ -14,13 +14,15 @@ import {TribeComponent} from "./tribe/tribe.component";
 import {MeasuringimpactComponent} from "./measuringimpact/measuringimpact.component";
 import {KotterComponent} from "./kotter/kotter.component";
 import {ServicenowComponent} from "./servicenow/servicenow.component";
+import {NavigationComponent} from "./navigation/navigation.component";
 
 
 const routes: Routes = [
+  {path: 'navigation', component: NavigationComponent},
   {path: 'resume', component: ResumeComponent},
   {path: 'engineering', component: EngineeringComponent},
   {path: 'workshops', component: WorkshopsComponent},
-  {path: 'pschsafety', component: PsychologicalsafetyComponent},
+  {path: 'psychsafety', component: PsychologicalsafetyComponent},
   {path: 'okrs', component: OkrsComponent},
   {path: 'impactstory', component: ImpactstorymappingComponent},
   {path: 'coaching', component: CoachingComponent},
@@ -40,4 +42,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const RoutingComponents = [ServicenowComponent, KotterComponent, MeasuringimpactComponent, TribeComponent, AtlassianComponent, HomeComponent, EngineeringComponent, ResumeComponent, WorkshopsComponent, SocialactivismComponent]
+export const RoutingComponents = [ServicenowComponent, KotterComponent, MeasuringimpactComponent, TribeComponent, AtlassianComponent, HomeComponent, EngineeringComponent, ResumeComponent, WorkshopsComponent, SocialactivismComponent, NavigationComponent]

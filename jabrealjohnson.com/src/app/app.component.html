@@ -1,50 +1,7 @@
-<nav class="navbar navbar-expand-lg fixed-top" style="background: white;box-shadow: 1px 2px;">
-  <div class="container">
-    <a class="navbar-brand" href="https://jabrealjohnson.com/">
-      <img src="assets/jj-sitting.png" style="border-radius: 50%;" height="70" alt="">
-    </a>
-    <h3>Jabreal Johnson</h3>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" style="margin-right: 1em;" id="navbarNav">
-      <ul class="navbar-nav ms-auto text-primary">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-expanded="false">
-            Data Science
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Machine Learning Theory</a></li>
-            <li><a class="dropdown-item" href="#" routerLink="/servicenow">Data Analysis & Preprocessing</a></li>
-            <li><a class="dropdown-item" href="#">Supervised & Unsupervised Learning</a></li>
-            <li><a class="dropdown-item" href="#">Algorithm Familiarity</a></li>
-            <li><a class="dropdown-item" href="#" routerLink="/kotter">Linear Algebra & Calculus </a></li>
-          </ul>
-        </li>
+<app-navigation></app-navigation>
+<app-home></app-home>
+<app-resume></app-resume>
+<app-socialactivism></app-socialactivism>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown"
-            aria-expanded="false">
-            About Me
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-            <li><a class="dropdown-item" href="#" routerLink="/resume">Resume</a></li>
-            <li><a class="dropdown-item" href="#" routerLink="/socialactivism">Social Activism</a></li>
-            <li><a class="dropdown-item" href="#" routerLink="/coaching">Coaching</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<router-outlet></router-outlet>
-<!-- footer -->
-<footer class="fixed-bottom" id="jjfooter">
 
-</footer>
