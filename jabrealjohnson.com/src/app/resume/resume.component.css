@@ -22,14 +22,5 @@
 .blur-effect {
   filter: blur(5px);
 }
-h2, h5, h6 {
-  opacity: 0; /* Start invisible */
-  transform: translateY(20px); /* Start slightly translated downwards */
-  transition: all 0.5s ease-out; /* Smooth transition for the effect */
-}
 
-h2.in-view, h5.in-view, h6.in-view {
-  opacity: 1; /* Fully visible when in view */
-  transform: translateY(0); /* Reset translation to normal */
-}
 
