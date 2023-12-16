@@ -30,6 +30,10 @@ jobs:
       - name: Install Requirements
         run: 'pip3 install -r requirements.txt'
 
+      - name: CDK Destroy
+        run:  cdk destroy --force
+        working-directory: .
+
       - name: App Dependencies
         run: npm install
         working-directory: ./jabrealjohnson.com/
@@ -49,6 +53,3 @@ jobs:
       - name: CDK Deploy
         run:  cdk deploy --require-approval never
         working-directory: .
-#      - name: CDK Destroy
-#        run:  cdk destroy --force
-#        working-directory: .
