@@ -8,3 +8,28 @@
 #resume{
   padding-top: 60px;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.blur-effect {
+  filter: blur(5px);
+}
+h2, h5, h6 {
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly translated downwards */
+  transition: all 0.5s ease-out; /* Smooth transition for the effect */
+}
+
+h2.in-view, h5.in-view, h6.in-view {
+  opacity: 1; /* Fully visible when in view */
+  transform: translateY(0); /* Reset translation to normal */
+}
+

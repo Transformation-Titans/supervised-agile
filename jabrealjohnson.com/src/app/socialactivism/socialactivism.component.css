@@ -19,5 +19,19 @@ img {
     padding: 0px 20px;
     width: 100%;
   }
-  
+
+}
+
+.blur-effect {
+  filter: blur(5px);
+}
+h3 {
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly translated downwards */
+  transition: all 0.5s ease-out; /* Smooth transition for the effect */
+}
+
+h3.in-view {
+  opacity: 1; /* Fully visible when in view */
+  transform: translateY(0); /* Reset translation to normal */
 }
