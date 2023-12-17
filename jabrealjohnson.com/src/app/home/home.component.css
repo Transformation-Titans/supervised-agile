@@ -232,5 +232,11 @@ button:hover{
 .profile-pic:hover {
   transform: scale(1.3); /* Enlarges the image on hover */
 }
+.gradient-jj {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  /* Add more styling as needed */
+}
 
 
