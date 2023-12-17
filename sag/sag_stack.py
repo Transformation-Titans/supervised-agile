@@ -89,7 +89,7 @@ class SagStack(Stack):
                                                             ])
         print(f"Website URL: https://{distribution.distribution_domain_name}")
         cloudfront_url_output = CfnOutput(self, "CloudFrontURL",
-                                          value=f"https://{distribution.distribution_domain_name}",
+                                          value=f"https://{distribution.distribution_domain_name} 🚀",
                                           description="The URL of the CloudFront distribution")
 
         # # Route 53 ARecord
