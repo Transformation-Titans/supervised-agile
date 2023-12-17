@@ -10,7 +10,7 @@ from aws_cdk import (
     aws_iam as iam,
     aws_cloudwatch as cloudwatch,
     aws_route53_targets as targets,
-    Environment,
+    Environment, CfnOutput,
     # aws_sqs as sqs,
 )
 from constructs import Construct
@@ -87,6 +87,10 @@ class SagStack(Stack):
                                                                     response_page_path="/index.html"
                                                                 )
                                                             ])
+        print(f"Website URL: https://{distribution.distribution_domain_name}")
+        cloudfront_url_output = CfnOutput(self, "CloudFrontURL",
+                                          value=f"https://{distribution.distribution_domain_name}",
+                                          description="The URL of the CloudFront distribution")
 
         # # Route 53 ARecord
         route53.ARecord(self, f"{user}-{org}-arecord",
