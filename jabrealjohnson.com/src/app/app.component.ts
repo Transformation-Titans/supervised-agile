@@ -1,7 +1,6 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import {faYoutube, faAws, faAtlassian, faGoogle, faInstagram, faLinkedin, faTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
 
 
 @Component({
@@ -35,7 +34,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           console.log('Visible section:', entry.target.id);
-          // Add your logic here, e.g., update navbar based on visible section
         }
       });
     }, {

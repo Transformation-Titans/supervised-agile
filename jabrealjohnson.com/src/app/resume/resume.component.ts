@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faYoutube, faAws, faAtlassian, faGoogle, faInstagram, faLinkedin, faTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
+import { faGithub} from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
