@@ -35,3 +35,10 @@ h3.in-view {
   opacity: 1; /* Fully visible when in view */
   transform: translateY(0); /* Reset translation to normal */
 }
+.gradient-box {
+  background: rgba(1, 5, 0, 0.1);
+  color: black;
+  border-radius: 15px;
+  padding: 20px;
+  /* Add more styling as needed */
+}

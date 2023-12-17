@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, HostListener, AfterViewInit, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -10,6 +10,20 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
   title = 'jabrealjohnson.com';
+  lastScrollTop = 0;
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: any) {
+    let st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > this.lastScrollTop){
+      // Downscroll code
+      this.applyFadeOut();
+    } else {
+      // Upscroll code
+      this.applyFadeIn();
+    }
+    this.lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  }
   private observer!: IntersectionObserver;
 
   constructor(private router: Router) {}
@@ -34,6 +48,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           console.log('Visible section:', entry.target.id);
+          const circles = entry.target.querySelectorAll('.circle');
+          circles.forEach(circle => circle.classList.add('in-view'));
         }
       });
     }, {
@@ -44,6 +60,21 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
     sections.forEach(section => {
       this.observer.observe(section);
+    });
+  }
+  private applyFadeIn() {
+    let elements = document.querySelectorAll('.page-section');
+    elements.forEach(element => {
+      element.classList.remove('fade-out');
+      element.classList.add('fade-in');
+    });
+  }
+
+  private applyFadeOut() {
+    let elements = document.querySelectorAll('.page-section');
+    elements.forEach(element => {
+      element.classList.remove('fade-in');
+      element.classList.add('fade-out');
     });
   }
 

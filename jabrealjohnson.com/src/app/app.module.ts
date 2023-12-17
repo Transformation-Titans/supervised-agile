@@ -20,6 +20,7 @@ import { KotterComponent } from './kotter/kotter.component';
 import { ServicenowComponent } from './servicenow/servicenow.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DatascienceComponent } from './datascience/datascience.component';
+import { VenndiagramComponent } from './venndiagram/venndiagram.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DatascienceComponent } from './datascience/datascience.component';
     KotterComponent,
     ServicenowComponent,
     NavigationComponent,
-    DatascienceComponent
+    DatascienceComponent,
+    VenndiagramComponent
   ],
   imports: [
     HttpClientModule,
