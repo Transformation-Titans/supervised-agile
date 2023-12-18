@@ -40,13 +40,11 @@
 }
 .venn-diagram .circle {
   /* ... existing styles ... */
-  opacity: 0; /* Start with circles hidden */
   transform: translateY(20px); /* Start position for animation */
   transition: opacity 0.8s, transform 0.8s;
 }
 
 /* Class to be added when circles come into view */
 .venn-diagram .circle.in-view {
-  opacity: 1; /* End with circles visible */
   transform: translateY(0); /* End position for animation */
 }
