@@ -38,3 +38,18 @@
 .page-section {
   padding: 20px;
 }
+/* Assuming your columns are side by side on larger screens */
+.left-column, .right-column {
+  width: 50%;
+  float: left;
+  /* other styling */
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .left-column, .right-column {
+    width: 100%;
+    float: none;
+    /* any additional styling for mobile layout */
+  }
+}
