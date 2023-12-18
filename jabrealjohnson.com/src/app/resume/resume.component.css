@@ -39,9 +39,21 @@
 }
 
 .gradient-box {
-  background: rgba(1, 5, 0, 0.8);
-  color: white;
+  background: rgba(173, 216, 230, 0.2);
+  color: black;
   border-radius: 15px;
   padding: 20px;
   /* Add more styling as needed */
+}
+.page-section {
+  padding: 20px;
+}
+.profile-container {
+  margin-bottom: 30px; /* Adjust as needed based on scaled image size */
+}
+
+.profile-pic {
+  /* Your existing styles */
+  transform: scale(4);
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
 }

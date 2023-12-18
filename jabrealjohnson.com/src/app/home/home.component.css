@@ -221,16 +221,18 @@ button:hover{
 }
 
 .profile-pic {
+  animation: fadeIn 1s;
   padding: 15px;
   width: 200px; /* Adjust the size as needed */
   height: 200px; /* Adjust the height as needed */
   border-radius: 50%; /* Creates the oval shape */
   object-fit: cover; /* Ensures the image covers the area */
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-pic:hover {
-  transform: scale(1.3); /* Enlarges the image on hover */
+  transform: scale(2);
 }
 .gradient-jj {
   background: rgba(0, 0, 0, 0.5);
@@ -239,4 +241,11 @@ button:hover{
   /* Add more styling as needed */
 }
 
+.page-section {
+  margin: 20px 0;
+  padding: 20px;
+}
+.profile-container {
+  margin-bottom: 30px; /* Adjust as needed based on scaled image size */
+}
 
