@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // Choose texture based on device type
     const spaceTextureUrl = isMobile
-      ? 'path/to/local/mobile/optimized/image.jpg' // Lower resolution image for mobile
+      ? 'assets/space.png' // Lower resolution image for mobile
       : 'https://upload.wikimedia.org/wikipedia/commons/0/00/Center_of_the_Milky_Way_Galaxy_IV_%E2%80%93_Composite.jpg';
 
     // Load texture with error handling
