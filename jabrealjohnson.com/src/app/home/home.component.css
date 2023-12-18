@@ -1,3 +1,200 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+img {
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .responsive{
+    padding: 0px 20px;
+  }
+
+}
+
+
+#para1 {
+  font-size: 40px
+}
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 80px;
+  z-index: 111;
+  line-height: 80px;
+}
+
+.containerjj {
+  width: 100%;
+  min-height: 10vh;
+  background-color: #f3f5f8;
+}
+
+b{
+  font-size: 30px;
+  color: #7f00ff;
+}
+
+.Logo{
+  display: flex;
+  font-size: 20px;
+  font-weight: 800;
+  color: #3d535f;
+  letter-spacing: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#ima{
+  text-transform: uppercase;
+}
+.navItems{
+  display: flex;
+}
+
+.navItems li{
+  list-style: none;
+  margin: 0 15px;
+}
+
+.navItems li a{
+  font-size: 25px;
+  color: #3d535f;
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.navItems li:hover a,
+.links a:hover{
+  color: #7f00ff;
+}
+
+.links a{
+  font-size: 30px;
+  color: #3d535f;
+  margin: 25px 10px;
+}
+.wrapper{
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+  background-color: black;
+}
+
+.wrapper::before{
+  display: flex;
+  position: absolute;
+  content: '';
+  height: 600px;
+  width: 600px;
+  border-radius: 50%;
+  left: -12%;
+  top: 40%;
+  background: linear-gradient(45deg,#7f00ff, pink);
+  animation: object1 6s linear infinite;
+}
+.wrapper::after{
+  display: flex;
+  position: absolute;
+  content: '';
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  left: 35%;
+  top: 12%;
+  background: linear-gradient(45deg,#7f00ff, pink);
+  animation: object2 6s linear infinite;
+}
+
+@keyframes object1 {
+  50%{
+    left: -13%;
+    top: 41%;
+  }
+
+}
+
+@keyframes object2 {
+  50%{
+    left: 35%;
+    top: 10%;
+  }
+
+}
+
+.cols{
+  width: 35%;
+}
+.cols0{
+  z-index: 5;
+}
+
+.topline{
+  display: block;
+  position: relative;
+  font-size: 35px;
+  letter-spacing: 5px;
+  color: #3d535f;
+}
+.topline::after{
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 45px;
+  bottom: 10px;
+  background-color: #7f00ff;
+}
+
+h1{
+
+  font-size: 7em;
+  font-weight: 900;
+  color: #3d535f;
+}
+
+.multiText{
+  color: #7f00ff;
+  text-transform: capitalize;
+}
+
+p{
+  display: block;
+  width: 90%;
+  font-size: 1.2em;
+  color: #3d535f;
+}
+.btns{
+  width: 50%;
+  position: relative;
+  left: 150px;
+}
+a{
+  box-shadow: 0 15px 10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  padding: 8px 14px;
+}
+
+button{
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #3d535f;
+  padding: 8px 14px;
+  margin: 40px 5px;
+  letter-spacing: 2px;
+  box-shadow: 0 15px 10px rgba(0,0,0,0.4);
+}
+button:hover{
+  background-color: #7f00ff;
+}
+
+.imgbox{
+  padding-top: 2px;
+}
 .imgbox img {
 
   z-index: 3;
@@ -30,9 +227,25 @@
   height: 200px; /* Adjust the height as needed */
   border-radius: 50%; /* Creates the oval shape */
   object-fit: cover; /* Ensures the image covers the area */
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-pic:hover {
   transform: scale(2);
 }
+.gradient-jj {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  /* Add more styling as needed */
+}
+
+.page-section {
+  margin: 20px 0;
+  padding: 20px;
+}
+.profile-container {
+  margin-bottom: 30px; /* Adjust as needed based on scaled image size */
+}
+

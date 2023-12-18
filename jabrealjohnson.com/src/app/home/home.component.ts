@@ -1,8 +1,6 @@
-import {Component, OnInit, OnDestroy, Renderer2, HostListener, AfterViewInit} from '@angular/core';
+import {Component, OnInit, OnDestroy, Renderer2, HostListener} from '@angular/core';
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-
-import { Geometry } from "three/examples/jsm/deprecated/Geometry";
 
 // Class within a class
 class Planet {
@@ -44,7 +42,7 @@ class Planet {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
 
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
@@ -64,7 +62,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.listener();
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
+
     const jdoc = document.getElementsByTagName("canvas")[0];
 
     this.renderer = new THREE.WebGL1Renderer({
@@ -79,6 +78,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     const scene = new THREE.Scene();
     const orbit = new OrbitControls(this.camera, this.renderer.domElement)
     orbit.update();
+
 
     const ambientLight = new THREE.AmbientLight(0x333333);
     scene.add(ambientLight);
@@ -109,6 +109,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       map: textureLoader.load("https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Map_of_the_full_sun.jpg/1600px-Map_of_the_full_sun.jpg")
     });
     const sunMesh = new THREE.Mesh(sunGeo, sunMat);
+    this.createAndAddPlanet(scene, sunMesh, 1.0, 44, "https://upload.wikimedia.org/wikipedia/commons/1/1c/Solarsystemscope_texture_8k_venus_surface.jpg");
     scene.add(sunMesh);
     const pointLight = new THREE.PointLight(0xffffff, 2, 300);
     scene.add(pointLight);
@@ -196,6 +197,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       plutoObj.rotation.y += EARTH_YEAR * 0.05;
       requestAnimationFrame(animate);
       this.renderer.render(scene, this.camera);
+      this.createAndAddPlanet(scene, sunMesh, 0.4, 28, "https://upload.wikimedia.org/wikipedia/commons/d/d3/Mercury_map_by_MESSENGER_global_mosaic_enhancedcolor_over_completebasemap.png");
+      this.createAndAddPlanet(scene, sunMesh, 1.0, 44, "https://upload.wikimedia.org/wikipedia/commons/1/1c/Solarsystemscope_texture_8k_venus_surface.jpg");
+
     };
     animate();
   }
@@ -212,7 +216,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
   }
-  goToBlogs() {
-
+  private createAndAddPlanet(scene: THREE.Scene, parentMesh: THREE.Mesh, radius: number, positionX: number, textureFile: string) {
+    const planet = new Planet(radius, positionX, textureFile);
+    const planetMesh = planet.buildMesh();
+    const planetObj = new THREE.Object3D();
+    planetObj.add(planetMesh);
+    parentMesh.add(planetObj);
   }
 }
