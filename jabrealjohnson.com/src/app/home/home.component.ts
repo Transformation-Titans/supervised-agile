@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import {Component, OnInit, OnDestroy, Renderer2, HostListener} from '@angular/core';
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
@@ -44,7 +44,10 @@ class Planet {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+
+  private camera!: THREE.PerspectiveCamera;
+  private renderer!: THREE.WebGLRenderer;
 
   listener;
   constructor(private renderer2: Renderer2) {
@@ -65,19 +68,17 @@ export class HomeComponent implements OnInit {
 
     const jdoc = document.getElementsByTagName("canvas")[0];
 
-    const renderer = new THREE.WebGL1Renderer({
+    this.renderer = new THREE.WebGL1Renderer({
       canvas: jdoc,
       antialias: true
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera.position.set(150, -100, 50);
 
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const orbit = new OrbitControls(camera, renderer.domElement)
-
-
-    camera.position.set(150, -100, 50);
+    const orbit = new OrbitControls(this.camera, this.renderer.domElement)
     orbit.update();
 
     const ambientLight = new THREE.AmbientLight(0x333333);
@@ -88,6 +89,21 @@ export class HomeComponent implements OnInit {
     scene.background = spaceTexture
 
     const textureLoader = new THREE.TextureLoader();
+
+    // Check if the device is a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    // Choose texture based on device type
+    const spaceTextureUrl = isMobile
+      ? 'path/to/local/mobile/optimized/image.jpg' // Lower resolution image for mobile
+      : 'https://upload.wikimedia.org/wikipedia/commons/0/00/Center_of_the_Milky_Way_Galaxy_IV_%E2%80%93_Composite.jpg';
+
+    // Load texture with error handling
+    textureLoader.load(spaceTextureUrl, texture => {
+      scene.background = texture;
+    }, undefined, error => {
+      console.error('An error occurred loading the texture:', error);
+    });
 
     const sunGeo = new THREE.SphereGeometry(22);
     const sunMat = new THREE.MeshBasicMaterial({
@@ -180,11 +196,23 @@ export class HomeComponent implements OnInit {
       uranusObj.rotation.y += EARTH_YEAR * 0.04;
       plutoObj.rotation.y += EARTH_YEAR * 0.05;
       requestAnimationFrame(animate);
-      renderer.render(scene, camera);
+      this.renderer.render(scene, this.camera);
     };
     animate();
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.updateCameraAspectRatio();
+  }
+
+  private updateCameraAspectRatio() {
+    if (this.camera && this.renderer) {
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+  }
   goToBlogs() {
 
   }

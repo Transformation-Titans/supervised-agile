@@ -24,3 +24,6 @@
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(20px); }
 }
+.app-page {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
