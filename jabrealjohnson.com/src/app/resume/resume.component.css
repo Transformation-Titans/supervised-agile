@@ -1,13 +1,3 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-
-.btns{
-  width: 50%;
-  position: relative;
-}
-
-#resume{
-  padding-top: 60px;
-}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -47,13 +37,4 @@
 }
 .page-section {
   padding: 20px;
-}
-.profile-container {
-  margin-bottom: 30px; /* Adjust as needed based on scaled image size */
-}
-
-.profile-pic {
-  /* Your existing styles */
-  transform: scale(4);
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
 }

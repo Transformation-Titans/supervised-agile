@@ -1,12 +1,33 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+.app-page {
+  color: white;
+}
+
+section {
+  display: grid;
+  place-content: center;
+  align-content: center;
+  min-height: 100vh;
+}
 
 .page-section {
-  /* Example styling; adjust as needed for your design */
-  min-height: 100vh;  /* Ensure each section is at least as tall as the viewport */
-  padding: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc; /* Just for visual separation of sections */
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 2s;
 }
+@media(prefers-reduced-motion) {
+  .page-section {
+    transition: none;
+  }
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
 .fade-in {
   animation: fadeIn 0.8s ease-in-out forwards;
 }
@@ -23,7 +44,4 @@
 @keyframes fadeOut {
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(20px); }
-}
-.app-page {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, Renderer2, HostListener} from '@angular/core';
+import {Component, OnInit, OnDestroy, Renderer2, HostListener, AfterViewInit} from '@angular/core';
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
@@ -44,7 +44,7 @@ class Planet {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements AfterViewInit, OnDestroy {
 
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
@@ -64,8 +64,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.listener();
   }
 
-  ngOnInit(): void {
-
+  ngAfterViewInit(): void {
     const jdoc = document.getElementsByTagName("canvas")[0];
 
     this.renderer = new THREE.WebGL1Renderer({

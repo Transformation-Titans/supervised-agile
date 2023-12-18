@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements AfterViewInit {
 
-  scrollTo(sectionId: string): void {
-    const section = document.getElementById(sectionId);
-    section?.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  ngOnInit() {
+  ngAfterViewInit(): void {
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {
@@ -24,6 +19,13 @@ export class NavigationComponent implements OnInit {
         });
       }
     });
+  }
+
+  scrollTo(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   getRandomColor() {
