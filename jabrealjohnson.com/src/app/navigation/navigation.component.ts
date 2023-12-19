@@ -19,8 +19,8 @@ export class NavigationComponent implements OnInit {
       if (link instanceof HTMLElement) {
         link.addEventListener('mouseenter', () => {
           const randomColor = this.getRandomColor();
-          link.style.backgroundColor = randomColor;
-          link.style.color = this.isLight(randomColor) ? 'black' : 'white';
+          link.style.setProperty('--random-color', randomColor);
+          link.style.setProperty('--text-color', this.isLight(randomColor) ? 'black' : 'white');
         });
       }
     });
