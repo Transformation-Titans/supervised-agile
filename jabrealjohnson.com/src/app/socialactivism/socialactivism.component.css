@@ -12,7 +12,10 @@ img {
 
 }
 .gradient-box {
-  color: white;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border-radius: 15px;
+  padding: 20px;
   /* Add more styling as needed */
 }
 .page-section {

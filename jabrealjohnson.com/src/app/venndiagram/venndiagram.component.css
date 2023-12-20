@@ -40,7 +40,6 @@
 }
 .venn-diagram .circle {
   /* ... existing styles ... */
-  opacity: 0; /* Start with circles hidden */
   transform: translateY(20px); /* Start position for animation */
   transition: opacity 0.8s, transform 0.8s;
 }

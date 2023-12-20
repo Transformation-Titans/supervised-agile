@@ -29,12 +29,15 @@
 }
 
 .gradient-box {
-  background: rgba(255, 255, 255, 0.8);
-  color: black;
+  background: linear-gradient(to bottom, #c471f5 0%, #00008B 100%);
+  color: white;
   border-radius: 15px;
   padding: 20px;
   /* Add more styling as needed */
 }
 .page-section {
   padding: 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
 }

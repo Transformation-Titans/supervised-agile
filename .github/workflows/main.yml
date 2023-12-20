@@ -1,7 +1,7 @@
 name: Deploy AWS CDK
 on:
   push:
-    branches: [ main, web3 ]
+    branches: [ main, web3, tmp ]
 
 jobs:
   aws_cdk:
