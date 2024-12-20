@@ -1,0 +1,55 @@
+/* mycv.css */
+.cv-container {
+  margin: 20px auto;
+  max-width: 800px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.cv-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cv-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.cv-header p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.cv-header p a:hover {
+  text-decoration: underline;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.experience-item h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+}
+
+.cv-education p, .cv-certifications p {
+  margin: 0;
+}
